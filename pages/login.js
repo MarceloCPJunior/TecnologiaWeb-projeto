@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import Input from './components/Input/input'
-import LoginCard from './components/LoginCard/loginCard'
-import Button from './components/button/button'
+import Input from '../components/input/input'
+import LoginCard from '../components/loginCard/loginCard'
+import Button from '../components/button/button'
 import styles from '../styles/login.module.css'
 import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/outline"
 import { useState } from 'react'

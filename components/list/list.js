@@ -1,7 +1,7 @@
 import FlipMove from "react-flip-move";
 
 import styles from "./list.module.css"
-import Poster from "../Poster/Poster";
+import Poster from "../poster/poster"
 
 const List = ({ results }) => {
     return (

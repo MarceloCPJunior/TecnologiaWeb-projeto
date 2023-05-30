@@ -1,5 +1,5 @@
 import { useRouter } from "next/router"
-import sorov from "../../../baza/sorov"
+import sorov from "../../baza/sorov"
 import styles from "./filter.module.css"
 
 export default function Filter() {

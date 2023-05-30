@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./navbar.module.css"
 import { useEffect, useState } from "react";
-import { verifyToken } from "../../../services/user";
+import { verifyToken } from "../../services/user";
 import Cookies from "js-cookie";
 import { getCookie } from "cookies-next";
 

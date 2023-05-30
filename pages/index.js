@@ -1,6 +1,6 @@
 import sorov from "../baza/sorov";
-import Filter from "./components/filter/filter";
-import List from "./components/list/list";
+import Filter from "../components/filter/filter";
+import List from "../components/list/list";
 
 export async function getServerSideProps(context){
   const genre = context.query.genre;
