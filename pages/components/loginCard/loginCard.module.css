@@ -1,0 +1,85 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    gap: 40px;
+    align-items: center;
+}
+
+.title {
+    width: 486px;
+    height: 80px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 64px;
+    color: white;
+    text-align: center;
+}
+
+.button{
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 32px;
+    gap: 8px;
+
+    width: 386px;
+    height: 56px;
+
+    /* Primary/400 */
+
+    background: #1E90FF;
+    /* Primary/400 */
+
+    border: 2px solid #1E90FF;
+    border-radius: 12px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+}
+
+.textButton{
+    /* Search */
+
+
+    width: 43px;
+    height: 24px;
+
+    /* Body/Regular */
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+
+    color: #FFFFFF;
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.labelSignup {
+    font-size: 16px;
+    color: #cccccc;
+}
+
+.labelError {
+    font-size: 14px;
+    color: red;
+}
+
+.strong {
+    cursor: pointer;
+}
+
+.strong a {
+    text-decoration: none;
+    color: #CCCCCC;
+}

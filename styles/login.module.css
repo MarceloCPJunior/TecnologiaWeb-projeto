@@ -1,0 +1,15 @@
+.link {
+    text-decoration: none;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.error {
+    font-size: 14px;
+    color: red;
+}

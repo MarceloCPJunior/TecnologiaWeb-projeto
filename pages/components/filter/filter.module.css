@@ -1,0 +1,20 @@
+.filter {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 0 60px;
+    max-width: 1340px;
+    margin: 0 auto;
+}
+
+.filterLinks{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 430px){
+    .filter {
+        overflow: auto;
+        padding: 0 20px;
+    }
+}

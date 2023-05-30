@@ -1,0 +1,71 @@
+.posterCard {
+    transition: 0.5s ease;
+}
+
+.posterCard:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.cardHeader .image{
+    width: 415px;
+    height: 250px;
+}
+
+.cardBody .title {
+    margin-bottom: 0;
+}
+
+.cardBody .overview {
+    margin-top: 0;
+    width: 350px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.cardBody .date {
+    display: flex;
+    align-items: center;
+}
+
+.date .likeIcon {
+    height: 1.1rem;
+    margin-left: 5px;
+}
+
+@media screen and (max-width: 430px){
+    .cardHeader .image {
+      width: 350px;
+      height: 210px;
+    }
+
+    .cardBody .overview {
+        width: 260px;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 390px){
+    .cardHeader .image {
+      width: 310px;
+      height: 180px;
+    }
+
+    .cardBody .overview {
+        width: 260px;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 300px){
+    .cardHeader .image {
+      width: 240px;
+      height: 140px;
+    }
+
+    .cardBody .overview {
+        width: 260px;
+        margin-top: 10px;
+    }
+}
