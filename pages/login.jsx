@@ -4,11 +4,15 @@ import LoginCard from '../components/loginCard/loginCard'
 import Button from '../components/button/button'
 import styles from '../styles/login.module.css'
 import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/outline"
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { setCookie } from 'cookies-next'
+import AuthContext from '../services/authContext'
 
 export default function Login() {
+    const { setTokenExists } = useContext(AuthContext);
+    const { updateUserEmail  } = useContext(AuthContext);
+
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -37,16 +41,14 @@ export default function Login() {
             if(response.status !== 200) throw new Error(json)
 
             setCookie('authorization', json)
+            setTokenExists(true);
+            
+            updateUserEmail(formData.email);
             router.push('/');
         } catch (err) {
-            console.log(err.message)
             setError(err.message)
         }
     }
-
-    const updateTokenExists = (exists) => {
-        setTokenExists(exists);
-      };
 
     return (
         <LoginCard>

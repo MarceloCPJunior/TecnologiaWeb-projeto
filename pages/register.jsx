@@ -4,11 +4,14 @@ import LoginCard from '../components/loginCard/loginCard'
 import Button from '../components/button/button'
 import styles from '../styles/register.module.css'
 import { EnvelopeIcon, LockClosedIcon, UserIcon } from "@heroicons/react/24/outline"
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { setCookie } from 'cookies-next'
 import { useRouter } from 'next/router'
+import AuthContext from '../services/authContext'
 
 export default function Register() {
+    const { setTokenExists } = useContext(AuthContext);
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -32,12 +35,14 @@ export default function Register() {
                 method: 'POST',
                 body: JSON.stringify(formData)
             })
-
+            
             const json = await response.json()
-
+            
             if(response.status !== 201) throw new Error(json)
-
+            
             setCookie('authorization', json)
+            setTokenExists(true);
+
             router.push('/')
         } catch (err) {
             setError(err.message)

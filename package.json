@@ -18,7 +18,10 @@
     "next": "13.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-flip-move": "^3.0.5"
+    "react-flip-move": "^3.0.5",
+    "react-redux": "^8.1.1",
+    "react-responsive-carousel": "^3.2.23",
+    "redux": "^4.2.1"
   },
   "devDependencies": {
     "@types/node": "20.2.5",

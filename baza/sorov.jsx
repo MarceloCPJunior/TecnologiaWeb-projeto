@@ -2,11 +2,11 @@ const API_KEY = "a81c3cb2e8b78a97806f76f4f60f684b";
 
 export default {
     fetchTrending: {
-        title: "Trending",
+        title: "Lançamentos",
         url: `/trending/all/week?api_key=${API_KEY}&language=pt-BR`,
     },
     fetchTopRated: {
-        title: "Rated",
+        title: "Populares",
         url: `/movie/top_rated?api_key=${API_KEY}&language=pt-BR`,
     },
     fetchActionMovies: {

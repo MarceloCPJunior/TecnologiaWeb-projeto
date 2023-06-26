@@ -1,0 +1,61 @@
+.castContainer{
+    width: 1200px; /* Largura desejada */
+    overflow-x: auto;
+    scrollbar-width: thin; /* Largura da barra de rolagem */
+    scrollbar-color: #888888 #f5f5f5;
+
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: auto auto auto auto;
+    padding: 100px 30px 0 30px;
+    gap: 40px;
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+.castContainer::-webkit-scrollbar {
+    width: 8px; /* Largura da barra de rolagem */
+    background-color: transparent;
+}
+
+.castContainer::-webkit-scrollbar-track {
+    background-color: #f5f5f5; /* Cor do fundo da barra de rolagem */
+    background-color: transparent;
+}
+
+.castContainer::-webkit-scrollbar-thumb {
+    background-color: #888888; /* Cor do indicador da barra de rolagem */
+    border-radius: 10px;
+}
+
+.castBox{
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+.imageBox{
+    background-color: #E1E1E1;
+    border-radius: 15px 15px 5px 5px;
+    align-items: center;
+}
+
+.image{
+    border-radius: 5px 5px 0px 0px;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 154px;
+    height: 80px;
+}
+
+.name {
+    font-size: 15px;
+    color: black;
+    text-align: center;
+}

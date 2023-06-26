@@ -1,17 +1,23 @@
-import { forwardRef } from "react";
+import { forwardRef, useContext } from "react";
 import { HeartIcon } from "@heroicons/react/24/outline"
 import styles from "./poster.module.css";
+import { useRouter } from "next/router";
 
 const Poster = forwardRef(({ result }, ref) => {
-    const BASE_URL = "https://image.tmdb.org/t/p/original";
-
+    const BASE_URL = "https://image.tmdb.org/t/p/w342";
+    const router = useRouter()
+    
+    function handlerCkick() {
+        router.push(`/more?movie=${result.id}`);
+    }
+    
     return (
-        <div ref={ref} className={styles.posterCard}>
+        <div ref={ref} className={styles.posterCard} onClick={ () => handlerCkick() }>
             <div className={styles.cardHeader}>
                 <img 
                     className={styles.image}
                     src={
-                        `${BASE_URL}${result.backdrop_path || result.poster_path}`
+                        `${BASE_URL}${result.poster_path || result.backdrop_path }`
                     }
                 />
             </div>

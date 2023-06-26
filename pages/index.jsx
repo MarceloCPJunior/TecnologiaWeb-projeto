@@ -5,10 +5,6 @@ import List from "../components/list/list";
 export async function getServerSideProps(context){
   const genre = context.query.genre;
 
-  console.log(`https://api.themoviedb.org/3${
-    sorov[genre]?.url || sorov.fetchTrending.url
-  }`)
-
   const request = await fetch(
     `https://api.themoviedb.org/3${
       sorov[genre]?.url || sorov.fetchTrending.url

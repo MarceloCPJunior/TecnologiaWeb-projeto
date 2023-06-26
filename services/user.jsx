@@ -10,22 +10,18 @@ function createToken(user) {
 
 function readToken(token) {
     try {
-        console.log("verificou o token")
-        console.log(SECRET)
         return jwt.verify(token, SECRET)
     } catch (err) {
-        console.log("deu erro")
         throw new Error('Token inválido')
     }
 }
 
 export function verifyToken(token) {
-    console.log("verificando token")
-    console.log(token)
     return readToken(token)
 }
 
 export const register = async (body) => {
+
     await databaseConnection()
     const userData = JSON.parse(body);
 
@@ -42,6 +38,7 @@ export const register = async (body) => {
 }
 
 export const login = async (body) => {
+
     await databaseConnection()
     const userData = JSON.parse(body);
 
@@ -56,5 +53,40 @@ export const login = async (body) => {
     }
 
     const token = createToken(body)
+
     return token
 }
+
+export const favorit = async (body) => {
+    await databaseConnection();
+    const userData = JSON.parse(body);
+
+    const user = await User.findOne({ email: userData.email });
+
+    if (user == null) {
+        throw new Error('Usuário não encontrado');
+    }
+
+    const index = user.favoritos.indexOf(userData.movieId);
+    if (index !== -1) {
+        user.favoritos.splice(index, 1);
+    } else {
+        user.favoritos.push(userData.movieId);
+    }
+
+    await user.save();
+    return user.favoritos
+};
+
+export const getFavoritos = async (body) => {
+    await databaseConnection();
+    const userData = JSON.parse(body);
+
+    const user = await User.findOne({ email: userData.email });
+
+    if (user == null) {
+        throw new Error('Usuário não encontrado');
+    }
+
+    return user.favoritos
+};
