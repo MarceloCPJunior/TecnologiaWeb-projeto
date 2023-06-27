@@ -30,6 +30,7 @@
 .link_items {
     display: flex;
     list-style: none;
+    align-items: center
 }
 
 .link_items li {
@@ -45,6 +46,14 @@
 
 .link_items a:hover {
     border-color: #fff;
+}
+
+.imagePerfil{
+    cursor: pointer;
+    width: 47px;
+    height: 47px;
+    background-color: white;
+    border-radius: 50px;
 }
 
 @media screen and (max-width: 300px){

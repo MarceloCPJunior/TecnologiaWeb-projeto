@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./navbar.module.css"
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { verifyToken } from "../../services/user";
 import Cookies from "js-cookie";
 import { getCookie } from "cookies-next";
@@ -11,6 +11,11 @@ export default function NavBar(){
 
     const { tokenExists, setTokenExists } = useContext(AuthContext);
     const { updateUserEmail } = useContext(AuthContext);
+
+    const [formData, setFormData] = useState({
+        email: '',
+        perfilImageLink: '',
+    })
 
     useEffect(() => {
         const checkToken = async () => {
@@ -30,6 +35,7 @@ export default function NavBar(){
             }
         };
         checkToken();
+        userInfo();
     }, []);
 
     function handleClick() {
@@ -37,6 +43,28 @@ export default function NavBar(){
         setTokenExists(false);
         updateUserEmail('')
     }
+
+    const userInfo = async () => {
+        try {
+            const storedEmail = localStorage.getItem('userEmail');
+            formData.email = storedEmail;
+
+            if(!(storedEmail === '' || storedEmail === undefined)){
+                const response = await fetch(`/api/user/userInfo`, {
+                    method: 'POST',
+                    body: JSON.stringify(formData)
+                })
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    formData.perfilImageLink = data.perfilImageLink || '/images/do-utilizador.png';
+                }
+            }
+
+        } catch (err) {
+            setError(err.message);
+        }
+    };
 
     return (
         <AuthContext.Provider value={[tokenExists, setTokenExists]}>
@@ -61,7 +89,9 @@ export default function NavBar(){
                     ) : (
                         <>
                             <li>
-                                <Link href="/profile">Perfil</Link>
+                                <Link href="/profile">
+                                    <img src={formData.perfilImageLink || "/images/do-utilizador.png"} className={styles.imagePerfil}></img>
+                                </Link>
                             </li>
                             <li>
                                 <Link href="/" onClick={handleClick}>Sair</Link>

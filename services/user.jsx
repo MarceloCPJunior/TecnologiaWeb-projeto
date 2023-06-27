@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken'
 import databaseConnection from '../pages/api/utils/database'
 import User from '../pages/api/models/user'
+import { useState } from 'react'
 
 const SECRET = 'as35dh46sd8j46wsr8t4w684bes'
 
@@ -90,3 +91,101 @@ export const getFavoritos = async (body) => {
 
     return user.favoritos
 };
+
+export const userInfo = async (body) => {
+    const formData = ({
+        name: '',
+        email: '',
+        perfilImageLink: '',
+        favoritos: [],
+    })
+
+    await databaseConnection();
+
+    const userData = JSON.parse(body);
+
+    const user = await User.findOne({ email: userData.email });
+
+    if(user == null){
+        throw new Error('Usuário não encontrado');
+    }
+
+    formData.name = user.name;
+    formData.email = user.email;
+    formData.perfilImageLink = user.perfilImageLink;
+    formData.favoritos = user.favoritos;
+
+    return formData;
+}
+
+export const alterEmail = async (body) => {
+    await databaseConnection();
+
+    const userData = JSON.parse(body);
+
+    const user = await User.findOne({ email: userData.email });
+
+    const existingUser = await User.findOne({ email: userData.newField });
+
+    if(user == null){
+        throw new Error('Usuário não encontrado');
+    }
+
+    if (user.password !== userData.password) {
+        throw new Error('Senha incorreta')
+    }
+
+    if(existingUser) {
+        throw new Error('Esse e-mail já está em uso')
+    }
+
+    user.email = userData.newField;
+
+    await user.save();
+
+    return 'E-mail alterado com sucesso'
+}
+
+export const alterPassword = async (body) => {
+    await databaseConnection();
+
+    const userData = JSON.parse(body);
+
+    const user = await User.findOne({ email: userData.email });
+
+    if(user == null){
+        throw new Error('Usuário não encontrado');
+    }
+
+    if (user.password !== userData.password) {
+        throw new Error('Senha incorreta')
+    }
+
+    if (user.password === userData.newField) {
+        throw new Error('A senha não pode ser a mesma')
+    }
+
+    user.password = userData.newField;
+
+    await user.save();
+    
+    return 'Senha alterada com sucesso'
+}
+
+export const alterPerfil = async (body) => {
+    await databaseConnection();
+
+    const userData = JSON.parse(body);
+
+    const user = await User.findOne({ email: userData.email });
+
+    if(user == null){
+        throw new Error('Usuário não encontrado');
+    }
+
+    user.perfilImageLink = userData.newImg;
+
+    await user.save();
+
+    return "Perfil alterado com sucesso";
+}

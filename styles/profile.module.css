@@ -1,0 +1,232 @@
+.container{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 50px 30px 0 30px;
+    gap: 40px;
+    max-width: 1150px;
+    margin: 0 auto;
+    background-color: #171e33;
+    border: 1px solid #323B54;
+    border-radius: 12px;
+    padding: 40px;
+}
+
+.imagePerfil{
+    cursor: pointer;
+    width: 90px;
+    height: 90px;
+    margin-bottom: 50px;
+    background-color: white;
+    border-radius: 50px;
+}
+
+.perfilBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    border-radius: 12px;
+    width: 300px;
+    height: 400px;
+    gap: 10px;
+}
+
+.alterBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 12px;
+    padding: 12px;
+    gap: 30px;
+    max-width: 550px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.input{
+    border: none;
+    outline: none;
+    background: transparent;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+
+    width: auto;
+    max-height: 28px;
+
+    flex: none;
+    order: 1;
+    flex-grow: 1;
+
+}
+
+.error {
+    font-size: 14px;
+    color: white;
+}
+
+.inputBox{
+    display: flex;
+    align-items: center;
+}
+
+.containerInput{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 16px;
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+    width: 386px;
+    height: 54px;
+    max-height: 54px;
+}
+
+.containerInput svg {
+    width: 20px;
+    height: 20px;
+}
+
+.input{
+    border: none;
+    outline: none;
+    background: transparent;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+
+    width: auto;
+    height: 28px;
+
+    flex: none;
+    order: 1;
+    flex-grow: 1;
+
+    color:white;
+}
+
+.defaultButton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.box { background-color: #171e33; }
+
+.btn {
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    width: 250px;
+    cursor: pointer;
+    color: #FFF;
+    transition: all 0.3s;
+    position: relative;
+}
+.btn span {
+    transition: all 0.3s;
+}
+.btn::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-color: rgba(255,255,255,0.5);
+    border-bottom-color: rgba(255,255,255,0.5);
+    transform: scale(0.1, 1);
+}
+.btn:hover span {
+    letter-spacing: 2px;
+}
+.btn:hover::before {
+    opacity: 1; 
+    transform: scale(1, 1); 
+}
+.btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.3s;
+    background-color: rgba(255,255,255,0.1);
+}
+.btn:hover::after {
+    opacity: 0; 
+    transform: scale(0.1, 1);
+}
+
+.carousel{
+    cursor: grab;
+    overflow: hidden;
+}
+
+.imageBox{
+    display: flex;
+    width: 450px;
+    margin: auto;
+    gap: 10px;
+}
+
+.favorit{
+    min-width: 228px;
+    min-height: 342px;
+    border-radius: 10px;
+    gap: 20px;
+}
+
+.favorit img {
+    width: 228px;
+    height: 342px;
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+.line1{
+    width: 2px;
+    height: 400px;
+    background-color: #323B54;
+}
+
+.line2{
+    width: 500px;
+    height: 2px;
+    background-color: #323B54;
+}
+
+.imagePerfilBox{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
